@@ -1,12 +1,39 @@
-import { NavLink } from "react-router-dom";
+import {NavLink} from 'react-router-dom';
 
-export default function Menu() {
-    return (
-        <nav className="menu">
-            <NavLink className="menu__item" activeClassName='menu__item-active' exact to="/">Главная</NavLink>
-            <NavLink className="menu__item" activeClassName='menu__item-active' to="/drift">Дрифт-такси</NavLink>
-            <NavLink className="menu__item" activeClassName='menu__item-active' to="/timeattack">Time Attack</NavLink>
-            <NavLink className="menu__item" activeClassName='menu__item-active' to="/forza">Forza Karting</NavLink>
-        </nav>
-    );
+function Menu() {
+  return (
+    <nav className="menu">
+      <NavLink 
+        className={({ isActive }) => {
+          const linkClasses = ["menu__item"];
+          if (isActive) linkClasses.push("menu__item-active");
+          return linkClasses.join(" ");
+        }} exact="true" to="/">
+          Главная
+      </NavLink>
+      <NavLink className={({ isActive }) => {
+          const linkClasses = ["menu__item"];
+          if (isActive) linkClasses.push("menu__item-active");
+          return linkClasses.join(" ");
+        }} to="/drift">
+          Дрифт-такси
+      </NavLink>
+      <NavLink className={({ isActive }) => {
+          const linkClasses = ["menu__item"];
+          if (isActive) linkClasses.push("menu__item-active");
+          return linkClasses.join(" ");
+        }} to="/timeattack">
+          Time Attack
+      </NavLink>
+      <NavLink className={({ isActive }) => {
+          const linkClasses = ["menu__item"];
+          if (isActive) linkClasses.push("menu__item-active");
+          return linkClasses.join(" ");
+        }} to="/forza">
+          Forza Karting
+      </NavLink>
+    </nav>
+  );
 }
+
+export default Menu;
